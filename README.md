@@ -1,14 +1,36 @@
 # Simple Todo App
 
-Give a brief description of the project here. Feel free to give it a different name.
+🔧 Project Overview
+Frontend (HTML & CSS):
 
-## Functionality
+HTML structures the application, including input fields for new tasks, buttons for adding tasks, and a list to display current tasks.
 
-Give a more detailed explanation of the project and its functionality.
+CSS enhances the visual appeal, providing styles for different task states (e.g., pending, completed) and responsive design for various devices.
+GitHub
 
-## Technology
+Backend (Java):
 
-Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+Java handles the application's logic, such as storing tasks, updating their status, and deleting them. It can also manage data persistence using file storage or databases, ensuring tasks are saved between sessions.
+
+✅ Key Features
+Add Tasks: Users can input new tasks to be added to their to-do list.
+
+Mark as Completed: Tasks can be marked as done, often visually indicated by a strikethrough or color change.
+
+Delete Tasks: Users can remove tasks that are no longer needed.
+
+Data Persistence: Tasks are saved using Java's file handling or database connectivity, ensuring they remain after closing the application.
+GitHub
++1
+codingwithyash.com
++1
+
+🎯 Learning Outcomes
+Frontend Development: Gain experience in creating interactive user interfaces with HTML and CSS.
+
+Java Programming: Learn to implement backend logic, manage data, and integrate with the frontend.
+
+Full-Stack Integration: Understand how to connect frontend and backend components to create a cohesive application
 
 ## Deployment
 

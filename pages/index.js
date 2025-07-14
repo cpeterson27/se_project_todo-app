@@ -7,7 +7,6 @@ const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopup.querySelector(".popup__form");
 const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
-// const todoTemplate = document.querySelector("#todo-template"); -> remove
 const todosList = document.querySelector(".todos__list");
 
 const openModal = (modal) => {
@@ -38,6 +37,7 @@ addTodoForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const name = evt.target.name.value;
   const dateInput = evt.target.date.value;
+  
 
   // Create a date object and adjust for timezone
   const date = new Date(dateInput);

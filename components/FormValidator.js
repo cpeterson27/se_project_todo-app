@@ -9,7 +9,17 @@ this._formEl = formEl;
 this._settings = settings;
     }
 
-    _toggleButtonState(inputList, buttonElement, inactiveButtonClass) {
+    resetValidation() {
+  this._inputList.forEach((inputElement) => {
+    this._hideInputError(this._formEl, inputElement, this._settings);
+  });
+  const buttonElement = this._formEl.querySelector(
+    this._settings.submitButtonSelector,
+  );
+  this._toggleButtonState(this._inputList, buttonElement);
+}
+
+    _toggleButtonState(inputList, buttonElement) {
   if (this._hasInvalidInput(inputList)) {
     buttonElement.classList.add(this._inactiveButtonClass);
     buttonElement.disabled = true;
@@ -76,5 +86,15 @@ enableValidation() {
   });
   this._setEventListeners();
 }
-}
+
+this._formEl.addEventListener("reset", () => {
+  setTimeout(() => {
+    const buttonElement = this._formEl.querySelector(
+      this._settings.submitButtonSelector,
+    );
+    this._toggleButtonState(this._inputList, buttonElement);
+  }, 0);
+});
+    }
+
 export default FormValidator;

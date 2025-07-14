@@ -10,7 +10,7 @@ this._todoCheckboxEl.addEventListener("change", () => {
 });
 
 this._todoElement.addEventListener("click", () => {
-    this._todoElement.remove();
+    this._todoElement.remove(".todo_visible");
   });
     }
 
@@ -30,7 +30,6 @@ this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
 
   const todoNameEl = this._todoElement.querySelector(".todo__name");
   const todoDate = this._todoElement.querySelector(".todo__date");
-  const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
   const dueDate = new Date(this._data.date);
 
 todoNameEl.textContent = this._data.name;
