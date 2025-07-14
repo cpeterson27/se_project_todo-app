@@ -8,6 +8,7 @@ const addTodoPopup = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopup.querySelector(".popup__form");
 const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
+const counterText = document.querySelector(".counter__text");
 
 const openModal = (modal) => {
   modal.classList.add("popup_visible");
@@ -16,6 +17,12 @@ const openModal = (modal) => {
 const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
 };
+
+export function updateCounter() {
+  const items = todosList.querySelectorAll(".todo");
+  const done = todosList.querySelectorAll(".todo__completed:checked").length;
+  counterText.textContent = `Showing ${done} out of ${items.length} completed`;
+}
 
 // The logic in this function should all be handled in the Todo class.
 const generateTodo = (data) => {
@@ -37,7 +44,8 @@ addTodoForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const name = evt.target.name.value;
   const dateInput = evt.target.date.value;
-  
+  updateCounter();
+  closeModal(addTodoPopup);
 
   // Create a date object and adjust for timezone
   const date = new Date(dateInput);
@@ -54,7 +62,7 @@ initialTodos.forEach((item) => {
   const todo = generateTodo(item);
   todosList.append(todo);
 });
-
+updateCounter();
 
  const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 newTodoValidator.enableValidation();

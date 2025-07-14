@@ -1,3 +1,5 @@
+import { updateCounter } from "../pages/index.js";
+
 class Todo {
     constructor(data, selector) {
         this._data = data;
@@ -5,24 +7,25 @@ class Todo {
     }
 
     _setEventListeners() {
-this._todoCheckboxEl.addEventListener("change", () => {
+    this._todoCheckboxEl.addEventListener("change", () => {  
     this._data.completed = !this._data.completed;
-    
+    updateCounter();
 });
 
-this._todoDeleteBtnEl.addEventListener("click", () => {
+    this._todoDeleteBtnEl.addEventListener("click", () => {
     this._todoElement.remove();
+    updateCounter();
   });
     }
 
   _generateCheckboxEl() {
-this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
+  this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
   this._todoLabel = this._todoElement.querySelector(".todo__label");
   this._todoCheckboxEl.checked = this._data.completed;
-    this._todoCheckboxEl.id = `todo-${this._data.id}`;
+  this._todoCheckboxEl.id = `todo-${this._data.id}`;
   this._todoLabel.setAttribute("for", `todo-${this._data.id}`);
   this._todoDeleteBtnEl = this._todoElement.querySelector(".todo__delete-btn");
-  this._todoCounterEl = this._todoElement.querySelector(".counter__text");
+
   }
 
     getView() {
