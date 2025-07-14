@@ -7,6 +7,7 @@ class Todo {
     _setEventListeners() {
 this._todoCheckboxEl.addEventListener("change", () => {
     this._data.completed = !this._data.completed;
+    
 });
 
 this._todoDeleteBtnEl.addEventListener("click", () => {
@@ -21,6 +22,7 @@ this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
     this._todoCheckboxEl.id = `todo-${this._data.id}`;
   this._todoLabel.setAttribute("for", `todo-${this._data.id}`);
   this._todoDeleteBtnEl = this._todoElement.querySelector(".todo__delete-btn");
+  this._todoCounterEl = this._todoElement.querySelector(".counter__text");
   }
 
     getView() {
