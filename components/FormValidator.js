@@ -1,6 +1,7 @@
 class FormValidator {
 constructor(settings, formEl) {
 this._inputSelector = settings.inputSelector;
+this._formselector = settings.formSelector;
 this._submitButtonSelector = settings.submitButtonSelector;
 this._errorClass = settings.errorClass;
 this._inputErrorClass = settings.inputErrorClass;
@@ -85,7 +86,6 @@ enableValidation() {
     evt.preventDefault();
   });
   this._setEventListeners();
-}
 
 this._formEl.addEventListener("reset", () => {
   setTimeout(() => {
@@ -95,6 +95,6 @@ this._formEl.addEventListener("reset", () => {
     this._toggleButtonState(this._inputList, buttonElement);
   }, 0);
 });
-    }
-
+}
+}
 export default FormValidator;

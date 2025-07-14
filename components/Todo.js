@@ -9,8 +9,8 @@ this._todoCheckboxEl.addEventListener("change", () => {
     this._data.completed = !this._data.completed;
 });
 
-this._todoElement.addEventListener("click", () => {
-    this._todoElement.remove(".todo_visible");
+this._todoDeleteBtnEl.addEventListener("click", () => {
+    this._todoElement.remove();
   });
     }
 
@@ -20,6 +20,7 @@ this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
   this._todoCheckboxEl.checked = this._data.completed;
     this._todoCheckboxEl.id = `todo-${this._data.id}`;
   this._todoLabel.setAttribute("for", `todo-${this._data.id}`);
+  this._todoDeleteBtnEl = this._todoElement.querySelector(".todo__delete-btn");
   }
 
     getView() {
