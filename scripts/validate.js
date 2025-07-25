@@ -1,4 +1,3 @@
-const errorElement = formElement.querySelector(errorElementId);
 inputElement.classList.add(settings.inputErrorClass);
 errorElement.textContent = errorMessage;
 errorElement.classList.add(settings.errorClass);

@@ -36,4 +36,4 @@ Full-Stack Integration: Understand how to connect frontend and backend component
 
 This project is deployed on GitHub Pages:
 
-- [LINK HERE](https://cpeterson27.github.io/se_project_todo-app/)
+- [https://cpeterson27.github.io/se_project_todo-app/]

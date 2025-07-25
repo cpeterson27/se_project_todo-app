@@ -20,13 +20,13 @@ const addTodoPopup = new PopupWithForm({
   handleFormSubmit: (inputValues) => {
     const date = new Date(inputValues.date);
     date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+    renderTodo(newTodo);
 
     const id = uuidv4();
     const newTodo = { name: inputValues.name, date, id };
 
-    renderTodo(newTodo);
     updateCounter();
-    closeModal(addTodoPopupEl);
+    addTodoPopup.close();
   },
 });
 
@@ -50,9 +50,6 @@ const section = new Section({
   },
   containerSelector: ".todos__list",
 });
-const renderItems = () => {
-  section.renderItems();
-};
 
 const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
@@ -81,7 +78,8 @@ const renderTodo = (item) => {
 };
 
 initialTodos.forEach((item) => {
-  section.addItem(generateTodo(item));
+  const todoElement = generateTodo(item);
+  section.addItem(todoElement);
 });
 updateCounter();
 
