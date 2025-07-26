@@ -20,11 +20,9 @@ const addTodoPopup = new PopupWithForm({
   handleFormSubmit: (inputValues) => {
     const date = new Date(inputValues.date);
     date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-    renderTodo(newTodo);
-
     const id = uuidv4();
     const newTodo = { name: inputValues.name, date, id };
-
+    renderTodo(newTodo);
     updateCounter();
     addTodoPopup.close();
   },
@@ -51,10 +49,6 @@ const section = new Section({
   containerSelector: ".todos__list",
 });
 
-const closeModal = (modal) => {
-  modal.classList.remove("popup_visible");
-};
-
 function handleCheck(completed) {
   todoCounter.updateCompleted(completed);
 }
@@ -63,25 +57,15 @@ function handleDelete(completed) {
   if (completed) {
     todoCounter.updateCompleted(false);
   }
-}
-
-export function updateCounter() {
-  const items = todosList.querySelectorAll(".todo");
-  const done = todosList.querySelectorAll(".todo__completed:checked").length;
-  counterText.textContent = `Showing ${done} out of ${items.length} completed`;
+  todoCounter.updateTotal(false);
 }
 
 const renderTodo = (item) => {
   const todo = generateTodo(item);
-  addItem(todo);
-  updateCounter();
+  todoCounter.updateTotal(true);
 };
 
-initialTodos.forEach((item) => {
-  const todoElement = generateTodo(item);
-  section.addItem(todoElement);
-});
-updateCounter();
+section.renderItems();
 
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 newTodoValidator.enableValidation();

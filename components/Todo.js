@@ -1,5 +1,3 @@
-import { updateCounter } from "../pages/index.js";
-
 class Todo {
   constructor(data, selector, handleCheck, handleDelete) {
     this._id = data.id;
