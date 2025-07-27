@@ -85,7 +85,6 @@ class Todo {
     this._setupDeleteButton();
     this._setEventListeners();
 
-    this._todoElement.id = `todo-${this._id}`;
     this._todoElement.dataset.id = this._id;
 
     if (this._completed) {
