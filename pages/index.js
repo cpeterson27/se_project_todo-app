@@ -45,7 +45,6 @@ const section = new Section({
   renderer: (item) => {
     renderTodo(item);
     todoCounter.updateTotal(true);
-    section.addItem(todo);
   },
   containerSelector: ".todos__list",
 });
@@ -61,10 +60,10 @@ function handleDelete(completed) {
   todoCounter.updateTotal(false);
 }
 
-const renderTodo = (item) => {
+function renderTodo(item) {
   const todo = generateTodo(item);
   section.addItem(todo);
-};
+}
 
 section.renderItems();
 
