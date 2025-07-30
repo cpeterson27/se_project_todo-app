@@ -44,7 +44,6 @@ const section = new Section({
   items: initialTodos,
   renderer: (item) => {
     renderTodo(item);
-    todoCounter.updateTotal(true);
   },
   containerSelector: ".todos__list",
 });
